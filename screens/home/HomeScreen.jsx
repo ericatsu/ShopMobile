@@ -2,8 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
-import styles from '../home.styles';
-import { Welcome } from '../../components';
+import { Headings, ImageCarousel, Welcome } from '../../components';
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -45,8 +44,12 @@ const HomeScreen = () => {
       
     </View>
 
-    <ScrollView>
+    <ScrollView className="mr-5">
       <Welcome/>
+
+      <ImageCarousel/>
+
+      <Headings />
     </ScrollView>
     </SafeAreaView>
   );
