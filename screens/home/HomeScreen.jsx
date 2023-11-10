@@ -1,7 +1,9 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
+import styles from '../home.styles';
+import { Welcome } from '../../components';
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -14,30 +16,39 @@ const HomeScreen = () => {
     navigation.navigate('Notification')
   }
 
-  const goToSearch = () => {
-    navigation.navigate('Search')
-  }
+  
 
   return (
-    <View className="flex-1 py-10 px-5">
-      <View className="flex flex-row justify-between items-center mb-4">
-        <View className="flex flex-row items-center">
-          <Ionicons name="person-circle-outline" size={30} color="#333" />
-          <Text className="text-2xl ml-2">John Doe</Text>
-        </View>
-        <View className="flex flex-row">
-          <TouchableOpacity onPress={goToNoti} className="mr-4">
-            <Ionicons name="notifications-outline" size={30} color="#333" />
-          </TouchableOpacity>
+    <SafeAreaView>
+      <View className="mx-22 mt-1 ml-5 mr-5">
+      <View className="flex-row justify-between items-center mb-4 ">
+        
+          <Ionicons name="location-outline" size={30} color="#8d8d8d"/>
+          
+       
+        <Text className="text-base ml-3">Accra, Ghana</Text>
+
+        
+         <View className="flex flex-row">
           <TouchableOpacity onPress={goToCart}>
             <Ionicons name="cart-outline" size={30} color="#333" />
           </TouchableOpacity>
-        </View>
+          <View className="absolute bottom-5 w-5 h-5 rounded-lg items-center bg-lime-500 justify-center z-99">
+            <Text className="font-semibold text-slate-50">6</Text>
+          </View>
+         </View>
+
+        
       </View>
-      <TouchableOpacity onPress={goToSearch} className="bg-gray-200 rounded p-2">
-        <Text>Search...</Text>
-      </TouchableOpacity>
+       
+      
+      
     </View>
+
+    <ScrollView>
+      <Welcome/>
+    </ScrollView>
+    </SafeAreaView>
   );
 }
 
