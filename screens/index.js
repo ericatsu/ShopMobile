@@ -6,6 +6,7 @@ import EwalletScreen from './EwalletScreen';
 import CartScreen from './home/CartScreen';
 import NotificationScreen from './home/NotificationScreen';
 import SearchScreen from './home/SearchScreen';
+import ProductDetails from './home/ProductDetails'
 
 export {
     HomeScreen,
@@ -15,5 +16,6 @@ export {
     EwalletScreen,
     CartScreen,
     NotificationScreen,
-    SearchScreen
+    SearchScreen,
+    ProductDetails
 }

@@ -5,7 +5,7 @@ import BottomTabNavigation from './navigators/BottomTabNavigation';
 import WelcomeScreen from './screens/onboarding/WelcomeScreen'; 
 import SignUpScreen from './screens/authentication/SignUpScreen';
 import SignInScreen from './screens/authentication/SignInScreen';
-import { NotificationScreen, CartScreen, SearchScreen } from './screens';
+import { NotificationScreen, CartScreen, SearchScreen, ProductDetails } from './screens';
 
 const Stack = createNativeStackNavigator();
 
@@ -21,6 +21,7 @@ const App = () => {
         <Stack.Screen name="Cart" component={CartScreen} />
         <Stack.Screen name="Notification" component={NotificationScreen} />
         <Stack.Screen name="Search" component={SearchScreen} />
+        <Stack.Screen name="ProductDetails" component={ProductDetails} />
       </Stack.Navigator>
     </NavigationContainer>
   );
