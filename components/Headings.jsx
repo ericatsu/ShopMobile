@@ -4,11 +4,11 @@ import { Ionicons } from '@expo/vector-icons'
 
 const Headings = () => {
   return (
-    <View className="">
-      <View className="">
-       <Text className="">New Rivals</Text>
+    <View className="mt-3 mx-5">
+      <View className="flex-row justify-between">
+       <Text className="font-semibold text-2xl">New Rivals</Text>
        <TouchableOpacity>
-         <Ionicons name='ios-grid' size={24} color={gray}/>
+         <Ionicons name='ios-grid' size={24} />
        </TouchableOpacity>
       </View>
     </View>
