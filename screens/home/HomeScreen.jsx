@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
-import { Headings, ImageCarousel, Welcome } from '../../components';
+import { Headings, ImageCarousel, ProductRow, Welcome } from '../../components';
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -19,7 +19,7 @@ const HomeScreen = () => {
 
   return (
     <SafeAreaView>
-      <View className="mx-22 mt-1 ml-5 mr-5">
+      <View className="mx-22 mt-1 ml-5 mr-5 ">
       <View className="flex-row justify-between items-center mb-4 ">
         
           <Ionicons name="location-outline" size={30} color="#8d8d8d"/>
@@ -50,6 +50,8 @@ const HomeScreen = () => {
       <ImageCarousel/>
 
       <Headings />
+
+      <ProductRow />
     </ScrollView>
     </SafeAreaView>
   );

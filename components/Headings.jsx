@@ -17,4 +17,3 @@ const Headings = () => {
 
 export default Headings
 
-const styles = StyleSheet.create({})

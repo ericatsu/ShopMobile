@@ -7,7 +7,7 @@ const Tab = createBottomTabNavigator();
 
 const BottomTabNavigation = () => {
   return (
-    <Tab.Navigator
+    <Tab.Navigator 
     screenOptions={({ route }) => ({
       tabBarIcon: ({ color, size }) => {
         let iconName;
