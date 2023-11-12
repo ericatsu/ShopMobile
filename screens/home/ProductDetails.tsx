@@ -1,10 +1,96 @@
-import { Text, View } from 'react-native'
-import React from 'react'
+import { Text, View, TouchableOpacity, Image } from 'react-native'
+import React, {useState}from 'react'
+import { Ionicons, SimpleLineIcons } from '@expo/vector-icons';
 
-const ProductDetails = () => {
+interface ProductDetailProps {
+  navigation: any;
+}
+
+const ProductDetails = ({ navigation }: ProductDetailProps) => {
+  const [count, setCount] = useState(1)
+
+  const increment = () => {
+    setCount(count + 1);
+  }
+
+  const decrement = () => {
+    if (count > 1) {
+      setCount(count - 1);
+    }
+  }
+
   return (
-    <View>
-      <Text>ProductDetails</Text>
+    <View className='flex-1 bg-black'>
+      <View className='flex-row items-center justify-between absolute z-999 mx-3 top-10 w-11/12'>
+       <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Ionicons name='chevron-back' size={30} color="gold"/>
+       </TouchableOpacity>
+
+       <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Ionicons name='heart' size={30}/>
+       </TouchableOpacity>
+      </View>
+      <Image
+        source={{
+          uri: 'https://images.unsplash.com/photo-1606229365485-93a3b8ee0385?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+          
+        }}
+        className="h-2/4 object-cover"
+      />
+
+      <View className='rounded-t-2xl h-2/4 mt-[-10] bg-slate-50 w-full'>
+        <View className='mx-4 flex-row justify-between items-center  top-5'>
+          <Text className='font-bold text-2xl'>Product</Text>
+          <View className='bg-lime-100 rounded-2xl p-2'>
+          <Text className='font-semibold text-base'> $799.9 </Text>
+          </View>
+        </View>
+
+        <View className='mx-4 flex-row justify-between items-center top-6'>
+           <View className='top-2 flex-row justify-start items-center'>
+            {[1,2,3,4,5].map((index) => (
+              <Ionicons
+               key={index}
+               name='star'
+               size={24}
+               color="gold"
+              />
+            ))}
+
+            <Text className='font-semibold text-base'>   (4.9)</Text>
+           </View>
+
+           <View className='top-2 flex-row justify-end items-center'>
+              <TouchableOpacity onPress={() => increment()}>
+              <SimpleLineIcons
+               name='plus'
+               size={20}
+              />
+              </TouchableOpacity>
+            <Text className='font-semibold text-base'> {count} </Text>
+            <TouchableOpacity onPress={() => decrement}>
+              <SimpleLineIcons
+               name='minus'
+               size={20}
+              />
+              </TouchableOpacity>
+           </View>
+        </View>
+
+        <View className='mt-10 mx-5'>
+          <Text className='font-semibold text-base'>Description</Text>
+          <Text className=''>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris aliquam est ut scelerisque auctor. Etiam eget egestas enim. Maecenas et mauris quis ipsum dapibus efficitur vitae consectetur ex. Ut rhoncus felis finibus ligula molestie, eget viverra eros venenatis. Integer sagittis urna in justo elementum, a elementum ligula tristique. Maecenas placerat est dolor, ut eleifend tortor pretium sed. Ut et neque ac ipsum tempus hendrerit. Cras justo augue, venenatis ut dapibus eget, vulputate et lacus.</Text>
+        </View>
+
+        <View className='mt-2 ml-4'>
+          <View className='flex-row justify-between items-center bg-lime-100 rounded-2xl p-2'>
+            <Ionicons
+              name='location-outline'
+              size={24}
+            />
+          </View>
+        </View>
+      </View>
     </View>
   )
 }
