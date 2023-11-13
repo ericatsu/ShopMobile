@@ -2,11 +2,20 @@ import { Ionicons } from '@expo/vector-icons';
 import React from 'react';
 import { Image, TouchableOpacity, View, Text } from 'react-native';
 
+interface Product {
+  title: string;
+  supplier: string;
+  price: string;
+  imageUrl: string;
+  description: string;
+  product_location: string;
+}
 interface ProductCardProps {
   navigation: any;
+  item: Product;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ navigation }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ navigation, item }) => {
 
   const goToProduct = () => {
     navigation.navigate('ProductDetails');
@@ -18,17 +27,16 @@ const ProductCard: React.FC<ProductCardProps> = ({ navigation }) => {
         <View className="flex-1 w-28  rounded overflow-hidden">
           <Image
             source={{
-              uri: 'https://images.unsplash.com/photo-1606229365485-93a3b8ee0385?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-              
+              uri: item.imageUrl, 
             }}
             className="h-24 w-28 object-cover"
           />
         </View>
 
         <View className='p-1'>
-          <Text className='text-sm font-semibold mb-1' numberOfLines={1}> Product Title </Text>
-          <Text className='text-xs mb-1' numberOfLines={1}> Product Title </Text>
-          <Text className='text-sm font-medium mb-1'> $799.9 </Text>
+          <Text className='text-sm font-semibold mb-1' numberOfLines={1}> {item.title} </Text>
+          <Text className='text-xs mb-1' numberOfLines={1}> {item.supplier} </Text>
+          <Text className='text-sm font-medium mb-1'> {item.price} </Text>
         </View>
         <TouchableOpacity className='absolute right-1 bottom-1'>
            <Ionicons name='add-circle' size={22} color={"#015346"}/>
