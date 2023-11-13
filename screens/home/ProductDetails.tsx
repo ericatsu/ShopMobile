@@ -1,6 +1,6 @@
 import { Text, View, TouchableOpacity, Image } from 'react-native'
 import React, {useState}from 'react'
-import { Ionicons, SimpleLineIcons } from '@expo/vector-icons';
+import { Fontisto, Ionicons, MaterialCommunityIcons, SimpleLineIcons } from '@expo/vector-icons';
 
 interface ProductDetailProps {
   navigation: any;
@@ -17,17 +17,18 @@ const ProductDetails = ({ navigation }: ProductDetailProps) => {
     if (count > 1) {
       setCount(count - 1);
     }
-  }
+  };
+  
 
   return (
     <View className='flex-1 bg-black'>
-      <View className='flex-row items-center justify-between absolute z-999 mx-3 top-10 w-11/12'>
-       <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Ionicons name='chevron-back' size={30} color="gold"/>
+      <View className='flex-row items-center justify-between absolute z-10 mx-3 top-10 w-11/12'>
+       <TouchableOpacity onPress={() => navigation.goBack()} >
+          <Ionicons name='chevron-back' size={30} color="white"/>
        </TouchableOpacity>
 
        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Ionicons name='heart' size={30}/>
+          <Ionicons name='heart' size={30} color="white"/>
        </TouchableOpacity>
       </View>
       <Image
@@ -52,7 +53,7 @@ const ProductDetails = ({ navigation }: ProductDetailProps) => {
               <Ionicons
                key={index}
                name='star'
-               size={24}
+               size={22}
                color="gold"
               />
             ))}
@@ -79,16 +80,40 @@ const ProductDetails = ({ navigation }: ProductDetailProps) => {
 
         <View className='mt-10 mx-5'>
           <Text className='font-semibold text-base'>Description</Text>
-          <Text className=''>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris aliquam est ut scelerisque auctor. Etiam eget egestas enim. Maecenas et mauris quis ipsum dapibus efficitur vitae consectetur ex. Ut rhoncus felis finibus ligula molestie, eget viverra eros venenatis. Integer sagittis urna in justo elementum, a elementum ligula tristique. Maecenas placerat est dolor, ut eleifend tortor pretium sed. Ut et neque ac ipsum tempus hendrerit. Cras justo augue, venenatis ut dapibus eget, vulputate et lacus.</Text>
+          <Text className='mt-2'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris aliquam est ut scelerisque auctor. Etiam eget egestas enim. Maecenas et mauris quis ipsum dapibus efficitur vitae consectetur ex. Ut rhoncus felis finibus ligula molestie, eget viverra eros venenatis.</Text>
         </View>
 
-        <View className='mt-2 ml-4'>
-          <View className='flex-row justify-between items-center bg-lime-100 rounded-2xl p-2'>
+        <View className='mt-4 ml-4'>
+          <View className='flex-row justify-between items-center bg-lime-100 rounded-2xl p-2 mr-3'>
+            <View className='flex-row items-center'>
             <Ionicons
               name='location-outline'
               size={24}
             />
+            <Text> Accra</Text>
+            </View>
+
+            <View className='flex-row items-center'>
+            <MaterialCommunityIcons
+              name='truck-delivery-outline'
+              size={24}
+            />
+            <Text> Free Delivery</Text>
+            </View>
           </View>
+        </View>
+        <View className='px-5 flex-row pb-5 justify-between items-center mt-4'>
+        <TouchableOpacity onPress={() => {}} className='w-52 rounded-2xl bg-black p-3'>
+              <Text className='font-semibold text-base text-white'> BUY NOW </Text>
+         </TouchableOpacity>
+
+         <TouchableOpacity onPress={() => {}} className='w-12 h-12 rounded-full bg-black p-2 items-center justify-center'>
+             <Fontisto
+              name='shopping-bag'
+              size={22}
+              color={'#ffff'}
+             /> 
+         </TouchableOpacity>
         </View>
       </View>
     </View>
