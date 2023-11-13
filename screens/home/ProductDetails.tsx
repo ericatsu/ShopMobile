@@ -58,7 +58,7 @@ const ProductDetails = ({ navigation }: ProductDetailProps) => {
               />
             ))}
 
-            <Text className='font-semibold text-base'>   (4.9)</Text>
+            <Text className='font-semibold text-base text-slate-500'>  (4.9)</Text>
            </View>
 
            <View className='top-2 flex-row justify-end items-center'>
