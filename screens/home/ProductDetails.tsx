@@ -69,7 +69,7 @@ const ProductDetails = ({ navigation }: ProductDetailProps) => {
               />
               </TouchableOpacity>
             <Text className='font-semibold text-base'> {count} </Text>
-            <TouchableOpacity onPress={() => decrement}>
+            <TouchableOpacity onPress={() => decrement()}>
               <SimpleLineIcons
                name='minus'
                size={20}
