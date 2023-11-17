@@ -33,6 +33,7 @@ const useFetch = (): FetchState => {
     try {
       const response = await axios.get('http://10.0.2.2:3000/api/products/', {timeout: 5000,});
       setData(response.data as ProductData);
+      console.log('API Response:', response.data);
     } catch (error) {
       console.error('Error fetching products:', error);
       setError(error.message);

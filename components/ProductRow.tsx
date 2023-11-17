@@ -6,7 +6,7 @@ import useFetch from '../hooks/useFetch'
 
 const ProductRow = () => {
     const {data, isLoading, error } = useFetch()
-    const products = [1,2,3,4]
+    //const products = [1,2,3,4]
     const navigation = useNavigation();
 
   return (
