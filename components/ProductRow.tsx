@@ -9,23 +9,29 @@ const ProductRow = () => {
     //const products = [1,2,3,4]
     const navigation = useNavigation();
 
+    if (isLoading) {
+      return <ActivityIndicator size={20} color="#2d29ec" />;
+    }
+  
+    if (error) {
+      return <Text>Error: {error}</Text>;
+    }
+
+    console.log('ProductRow - Data:', data);
+    
   return (
     <View className="mt-2 ml-5 mr-5">
-    {
-      isLoading ? (
-        <ActivityIndicator size={20} color="#2d29ec"/>
-      ) : error ? (
-        <Text className='justify-center items-center'>Something Went Wrong</Text>
-      ) : (
-    <FlatList 
-      data={data?.products || []}
-      keyExtractor={(item) => item._id}
-      renderItem={({ item }) => { return <ProductCard navigation={navigation} item={item}/>; }}
-      horizontal
-      contentContainerStyle={{columnGap: 2}}
-    />
-      )
-    }
+    {data && data.products && data.products.length > 0 ? (
+      <FlatList
+        data={data.products}
+        keyExtractor={(item) => item._id}
+        renderItem={({ item }) => <ProductCard navigation={navigation} item={item} />}
+        horizontal
+        contentContainerStyle={{ columnGap: 2 }}
+      />
+    ) : (
+      <Text>No products available.</Text>
+    )}
     </View>
   )
 }

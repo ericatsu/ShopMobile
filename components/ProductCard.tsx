@@ -3,6 +3,7 @@ import React from 'react';
 import { Image, TouchableOpacity, View, Text } from 'react-native';
 
 interface Product {
+  _id: string;
   title: string;
   supplier: string;
   price: string;
@@ -23,7 +24,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ navigation, item }) => {
 
   return (
     <TouchableOpacity onPress={goToProduct}>
-      <View className="w-28 h-40 mt-2 mr-2 bg-slate-200 rounded-md">
+      <View className="w-28 h-40 mt-2 mr-2  rounded-md">
         <View className="flex-1 w-28  rounded overflow-hidden">
           <Image
             source={{

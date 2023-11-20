@@ -32,7 +32,7 @@ const useFetch = (): FetchState => {
     setIsLoading(true);
     
     try {
-      const response: AxiosResponse<ProductData> = await axios.get('/api/products/', {baseURL: 'http://172.20.10.2:3000',timeout: 5000,});
+      const response: AxiosResponse<ProductData> = await axios.get('/api/products/', {baseURL: 'http://172.20.10.2:3000',timeout: 15000,});
       setData(response.data as ProductData);
       console.log('API Response:', response.data);  
     } catch (error) {
