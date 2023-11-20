@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 
 interface ProductData {
     products: Product[];
@@ -28,17 +28,19 @@ const useFetch = (): FetchState => {
   const [error, setError] = useState<string | null>(null);
 
   const fetchProducts = async (): Promise<void> => {
+    console.log('Before API Call');
     setIsLoading(true);
     
     try {
-      const response = await axios.get('http://10.0.2.2:3000/api/products/', {timeout: 5000,});
+      const response: AxiosResponse<ProductData> = await axios.get('/api/products/', {baseURL: 'http://172.20.10.2:3000',timeout: 5000,});
       setData(response.data as ProductData);
-      console.log('API Response:', response.data);
+      console.log('API Response:', response.data);  
     } catch (error) {
       console.error('Error fetching products:', error);
       setError(error.message);
     }
     setIsLoading(false);
+    console.log('After API Call');
   };
 
   useEffect(() => {
