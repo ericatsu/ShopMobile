@@ -21,9 +21,9 @@ const ProductRow = () => {
     
   return (
     <View className="mt-2 ml-5 mr-5">
-    {data && data.products && data.products.length > 0 ? (
+    {data && data.length > 0 ? (
       <FlatList
-        data={data.products}
+        data={data}
         keyExtractor={(item) => item._id}
         renderItem={({ item }) => <ProductCard navigation={navigation} item={item} />}
         horizontal

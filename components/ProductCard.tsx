@@ -22,6 +22,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ navigation, item }) => {
     navigation.navigate('ProductDetails');
   };
 
+
   return (
     <TouchableOpacity onPress={goToProduct}>
       <View className="w-28 h-40 mt-2 mr-2  rounded-md">

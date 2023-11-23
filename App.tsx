@@ -6,6 +6,7 @@ import WelcomeScreen from './screens/onboarding/WelcomeScreen';
 import SignUpScreen from './screens/authentication/SignUpScreen';
 import SignInScreen from './screens/authentication/SignInScreen';
 import { NotificationScreen, CartScreen, SearchScreen, ProductDetails } from './screens';
+import { StatusBar } from 'react-native';
 
 const Stack = createNativeStackNavigator();
 
@@ -13,6 +14,7 @@ const App = () => {
 
   return (
     <NavigationContainer>
+      <StatusBar barStyle = "dark-content" hidden = {false} backgroundColor = "#e7fcff" translucent = {true}/>
       <Stack.Navigator initialRouteName="Welcome">
         <Stack.Screen name="Welcome" component={WelcomeScreen} options={{ headerShown: false }} />
         <Stack.Screen name="SignUpScreen" component={SignUpScreen} options={{ headerShown: false }} />

@@ -26,6 +26,7 @@ const ImageCarousel = () => {
     <View className="mr-5 ml-5">
       <Carousel
         data={images}
+        vertical={false}
         renderItem={renderImageItem}
         sliderWidth={width}
         itemWidth={width}
