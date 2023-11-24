@@ -28,7 +28,7 @@ const HomeScreen = ({ navigation }: HomeScreenProps) => {
             <TouchableOpacity onPress={goToCart}>
               <Ionicons name="cart-outline" size={30} color="#333" />
             </TouchableOpacity>
-            <View className="absolute bottom-5 w-5 h-5 rounded-lg items-center bg-lime-500 justify-center z-99">
+            <View className="absolute bottom-5 w-5 h-5 rounded-lg items-center bg-lime-500 justify-center z-10">
               <Text className="font-semibold text-slate-50">6</Text>
             </View>
           </View>

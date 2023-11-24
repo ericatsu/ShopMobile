@@ -6,7 +6,6 @@ import useFetch from '../hooks/useFetch'
 
 const ProductRow = () => {
     const {data, isLoading, error } = useFetch()
-    //const products = [1,2,3,4]
     const navigation = useNavigation();
 
     if (isLoading) {
@@ -17,7 +16,7 @@ const ProductRow = () => {
       return <Text>Error: {error}</Text>;
     }
 
-    console.log('ProductRow - Data:', data);
+    // console.log('ProductRow - Data:', data);
     
   return (
     <View className="mt-2 ml-5 mr-5">

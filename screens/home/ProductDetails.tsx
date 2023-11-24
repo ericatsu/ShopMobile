@@ -1,5 +1,6 @@
 import { Text, View, TouchableOpacity, Image } from 'react-native'
 import React, {useState}from 'react'
+import { useRoute } from '@react-navigation/native';
 import { Fontisto, Ionicons, MaterialCommunityIcons, SimpleLineIcons } from '@expo/vector-icons';
 
 interface ProductDetailProps {
@@ -7,6 +8,8 @@ interface ProductDetailProps {
 }
 
 const ProductDetails = ({ navigation }: ProductDetailProps) => {
+  const route = useRoute();
+  const {item} = route.params;
   const [count, setCount] = useState(1)
 
   const increment = () => {
@@ -33,7 +36,7 @@ const ProductDetails = ({ navigation }: ProductDetailProps) => {
       </View>
       <Image
         source={{
-          uri: 'https://images.unsplash.com/photo-1606229365485-93a3b8ee0385?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+          uri: item.imageUrl,
           
         }}
         className="h-2/4 object-cover"
@@ -41,9 +44,9 @@ const ProductDetails = ({ navigation }: ProductDetailProps) => {
 
       <View className='rounded-t-2xl h-2/4 mt-[-10] bg-slate-50 w-full'>
         <View className='mx-4 flex-row justify-between items-center  top-5'>
-          <Text className='font-bold text-2xl'>Product</Text>
+          <Text className='font-bold text-2xl'>{item.title}</Text>
           <View className='bg-lime-100 rounded-2xl p-2'>
-          <Text className='font-semibold text-base'> $799.9 </Text>
+          <Text className='font-semibold text-base'> {item.price} </Text>
           </View>
         </View>
 
@@ -79,7 +82,7 @@ const ProductDetails = ({ navigation }: ProductDetailProps) => {
         </View>
 
         <View className='mt-10 mx-5'>
-          <Text className='font-semibold text-base'>Description</Text>
+          <Text className='font-semibold text-base'>{item.description}</Text>
           <Text className='mt-2'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris aliquam est ut scelerisque auctor. Etiam eget egestas enim. Maecenas et mauris quis ipsum dapibus efficitur vitae consectetur ex. Ut rhoncus felis finibus ligula molestie, eget viverra eros venenatis.</Text>
         </View>
 
@@ -90,7 +93,7 @@ const ProductDetails = ({ navigation }: ProductDetailProps) => {
               name='location-outline'
               size={24}
             />
-            <Text> Accra</Text>
+            <Text> {item.product_location}</Text>
             </View>
 
             <View className='flex-row items-center'>

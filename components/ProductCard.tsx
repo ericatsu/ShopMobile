@@ -19,7 +19,7 @@ interface ProductCardProps {
 const ProductCard: React.FC<ProductCardProps> = ({ navigation, item }) => {
 
   const goToProduct = () => {
-    navigation.navigate('ProductDetails');
+    navigation.navigate('ProductDetails', {item});
   };
 
 
