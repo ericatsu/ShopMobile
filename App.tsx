@@ -23,7 +23,7 @@ const App = () => {
         <Stack.Screen name="ProductList" component={NewRivals} options={{ headerShown: false }} />
         <Stack.Screen name="Cart" component={CartScreen} />
         <Stack.Screen name="Notification" component={NotificationScreen} />
-        <Stack.Screen name="Search" component={SearchScreen} />
+        <Stack.Screen name="Search" component={SearchScreen} options={{ headerShown: false }}/>
         <Stack.Screen name="ProductDetails" component={ProductDetails} options={{ headerShown: false }}/>
       </Stack.Navigator>
     </NavigationContainer>

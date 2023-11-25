@@ -29,7 +29,6 @@ const useFetch = (): FetchState => {
   const [error, setError] = useState<string | null>(null);
 
   const fetchProducts = async (): Promise<void> => {
-    console.log('Before API Call');
     setIsLoading(true);
     
     try {
@@ -41,7 +40,6 @@ const useFetch = (): FetchState => {
       setError(error.message);
     }
     setIsLoading(false);
-    console.log('After API Call');
   };
 
   useEffect(() => {
