@@ -1,8 +1,10 @@
-import { View, Text, SafeAreaView, TouchableOpacity, TextInput } from 'react-native'
+import { View, Text, SafeAreaView, TouchableOpacity, TextInput, FlatList } from 'react-native'
 import React, {useState} from 'react'
 import { Ionicons } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
+import ProductCard from '../../components/ProductCard';
+import { SearchTile } from '../../components';
 
 const SearchScreen = () => {
   const navigation = useNavigation();
@@ -13,10 +15,8 @@ const SearchScreen = () => {
 
   const handleSearch = async () => {
     try {
-      const response = await axios.get(`http://197.255.122.235:3000/api/products/search/${searchKey}`);
-      console.log('====================================');
-      console.log(response.data);
-      console.log('====================================');
+      const response = await axios.get(`http://197.255.122.237:3000/api/products/search/${searchKey}`);
+      setSearchResults(response.data)
     } catch (error) {
       console.log("Failed to get product:", error);
     }
@@ -40,6 +40,16 @@ const SearchScreen = () => {
       <Ionicons name="search-outline" size={24} color="#8d8d8d"/>
       </TouchableOpacity>
       </View>
+      {searchResults && searchResults.length > 0 ? (
+      <FlatList
+        data={searchResults}
+        keyExtractor={(item) => item._id}
+        renderItem={({ item }) => <SearchTile item={item} />}
+        contentContainerStyle={{ columnGap: 2 }}
+      />
+    ) : (
+      <Text className='items-center justify-center text-2xl text-center'>No products available.</Text>
+    )}
     </SafeAreaView>
   )
 }
