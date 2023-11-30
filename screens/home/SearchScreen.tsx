@@ -3,7 +3,6 @@ import React, {useState} from 'react'
 import { Ionicons } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
-import ProductCard from '../../components/ProductCard';
 import { SearchTile } from '../../components';
 
 const SearchScreen = () => {
