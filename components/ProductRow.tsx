@@ -15,9 +15,8 @@ const ProductRow = () => {
     if (error) {
       return <Text>Error: {error}</Text>;
     }
-
-    // console.log('ProductRow - Data:', data);
     
+  
   return (
     <View className="mt-2 ml-5 mr-5">
     {data && data.length > 0 ? (
@@ -35,5 +34,5 @@ const ProductRow = () => {
   )
 }
 
-export default ProductRow
+export default ProductRow;
 

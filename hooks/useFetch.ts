@@ -1,12 +1,12 @@
-import { useState, useEffect } from 'react';
-import axios, { AxiosResponse } from 'axios';
+import { useState, useEffect } from "react";
+import axios, { AxiosResponse } from "axios";
 
 interface ProductData {
-    products: Product[];
-    length: any
+  products: Product[];
+  length: number;
 }
 
-interface Product  {
+interface Product {
   _id: string;
   title: string;
   supplier: string;
@@ -30,26 +30,28 @@ const useFetch = (): FetchState => {
 
   const fetchProducts = async (): Promise<void> => {
     setIsLoading(true);
-    
+
     try {
-      const response: AxiosResponse<ProductData> = await axios.get('/api/products/', {baseURL: 'http://197.255.122.237:3000', timeout: 15000,});
+      const response: AxiosResponse<ProductData> = await axios.get(
+        "/api/products/",
+        { baseURL: "https://shop-backend-10o1.onrender.com", timeout: 30000 }
+      );
       setData(response.data as ProductData);
-      //console.log('API Response Test: ', response);  
-    } catch (error) {
-      console.error('Error fetching products:', error);
-      setError(error.message);
+      //console.log("API Response Test: ", response);
+    } catch (err) {
+      console.error("Error fetching products:", err);
+      setError(err.message || "Unknown error");
     }
     setIsLoading(false);
   };
 
   useEffect(() => {
     fetchProducts();
-  }, []); 
+  }, []);
 
   const refetch = () => {
-    setIsLoading(true)
-    fetchProducts()
-  }
+    fetchProducts();
+  };
 
   return { data, isLoading, error, refetch };
 };

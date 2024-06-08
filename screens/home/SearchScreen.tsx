@@ -7,23 +7,25 @@ import { SearchTile } from '../../components';
 
 const SearchScreen = () => {
   const navigation = useNavigation();
-
   const [searchKey, setSearchKey] = useState('');
-  const [searchResults, setSearchResults] = useState();
-  
+  const [searchResults, setSearchResults] = useState([]);
 
   const handleSearch = async () => {
+    if (!searchKey.trim()) {
+      return; 
+    }
+
     try {
-      const response = await axios.get(`http://197.255.122.237:3000/api/products/search/${searchKey}`);
-      setSearchResults(response.data)
+      const response = await axios.get(`https://shop-backend-10o1.onrender.com/api/products/search/${searchKey}`);
+      setSearchResults(response.data);
     } catch (error) {
       console.log("Failed to get product:", error);
     }
-  }
+  };
 
   return (
-    <SafeAreaView>
-      <View className="flex flex-row items-center justify-center bg-slate-300 p-3 rounded-2xl m-3">
+    <SafeAreaView className='flex-1 bg-gray-100'>
+      <View className="flex-row items-center justify-center bg-gray-300 p-3 rounded-2xl m-3">
       <TouchableOpacity onPress={() => {}} >
          <Ionicons name="camera-outline" size={25} color="#8d8d8d"/>
       </TouchableOpacity>
@@ -35,15 +37,15 @@ const SearchScreen = () => {
           />
         </TouchableOpacity>
       
-      <TouchableOpacity onPress={() => handleSearch()} className=''>
+        <TouchableOpacity onPress={handleSearch}>
       <Ionicons name="search-outline" size={24} color="#8d8d8d"/>
       </TouchableOpacity>
       </View>
       {searchResults && searchResults.length > 0 ? (
       <FlatList
-        data={searchResults}
-        keyExtractor={(item) => item._id}
-        renderItem={({ item }) => <SearchTile item={item} />}
+          data={searchResults}
+          keyExtractor={(item) => item._id}
+          renderItem={({ item }) => <SearchTile item={item} navigation={navigation} />}
         contentContainerStyle={{ columnGap: 2 }}
       />
     ) : (

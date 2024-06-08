@@ -22,10 +22,16 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.ericatsu.shopmobile"
+      "package": "com.ericatsu.shopmobile",
+      "versionCode": 1
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "f83e36cb-2775-4bb5-a9e7-a9d8d6a7ef2a"
+      }
     }
   }
 }

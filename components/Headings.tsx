@@ -15,7 +15,7 @@ const Headings = () => {
       <View className="flex-row justify-between">
        <Text className="font-semibold text-2xl">New Rivals</Text>
        <TouchableOpacity onPress={goToNewRivals}>
-         <Ionicons name='ios-grid' size={24} />
+         <Ionicons name='grid' size={24} />
        </TouchableOpacity>
       </View>
     </View>

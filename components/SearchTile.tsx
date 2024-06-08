@@ -1,32 +1,37 @@
 import { Text, TouchableOpacity, View, Image } from 'react-native'
 import React from 'react'
-//import { useNavigation } from '@react-navigation/native'
 
-
-interface SearchTileProps {
-  navigation: { navigate: (screen: string) => void };
-  item: any;
+interface Search {
+  //navigation: { navigate: (screen: string, params?: object) => void };
+  
+  _id: string;
+  title: string;
+  supplier: string;
+  price: string;
+  imageUrl: string;
+  description: string;
+  product_location: string;
 }
 
-const SearchTile = ({ navigation, item }: SearchTileProps) => {
+interface SearchTileProps {
+  navigation: any;
+  item: Search;
+}
+
+const SearchTile: React.FC<SearchTileProps> = ({ navigation, item }) => {
   const goToProductList = () => {
-    navigation.navigate('ProductDetails');
+    navigation.navigate('ProductDetails', {item});
   };
 
   return (
-    <View>
-      <TouchableOpacity onPress={goToProductList} className='flex-1 justify-center items-center mb-3 flex-row p-4 rounded bg-white shadow-md shadow-slate-50'>
-        <View className='w-3/4 bg-slate-400 rounded-md justify-center items-center'>
-          <Image source={{uri: item.imageUrl}} className='w-full h-10 resize rounded-sm'/>
-        </View>
-
-        <View className='flex-1 mx-5'>
-           <Text className='text-sm font-bold'>{item.title}</Text>
-           <Text>{item.description}</Text>
-           <Text>{item.price}</Text>
+    <TouchableOpacity onPress={goToProductList} className='flex-row bg-white p-4 m-2 rounded-lg shadow-md'>
+        <Image source={{ uri: item.imageUrl }} className='w-20 h-20 rounded-lg'/>
+      <View className='flex-1 ml-4 justify-center'>
+        <Text className='text-lg font-bold text-gray-900'>{item.title}</Text>
+        <Text className='text-sm text-gray-600'>{item.description}</Text>
+        <Text className='text-base font-bold text-gray-900'>{item.price}</Text>
         </View>
       </TouchableOpacity>
-    </View>
   )
 }
 

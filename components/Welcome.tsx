@@ -20,7 +20,6 @@ const Welcome = () => {
     <View className="w-full ml-2">
       <Text className="font-bold text-3xl mt-2 ml-2 ">Find the best</Text>
       <Text className="font-bold text-lime-500 text-3xl mt-2 ml-2 ">Products today</Text>
-
       <View className="flex flex-row items-center justify-center bg-slate-300 p-3 rounded-2xl m-3">
         <Ionicons name="search-outline" size={24} color="#8d8d8d"/> 
         <TouchableOpacity onPress={goToSearch} className="flex-1 ml-2">
@@ -31,7 +30,6 @@ const Welcome = () => {
       </TouchableOpacity>
       </View>
     </View>
-    
   )
 }
 

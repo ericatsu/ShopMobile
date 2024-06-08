@@ -30,9 +30,9 @@ const BottomTabNavigation = () => {
     >
       <Tab.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
       <Tab.Screen name="Orders" component={OrdersScreen} options={{ headerShown: false }} />
-      <Tab.Screen name="Messages" component={MessagesScreen} />
-      <Tab.Screen name="Ewallet" component={EwalletScreen} />
-      <Tab.Screen name="Profile" component={ProfileScreen} />
+      <Tab.Screen name="Messages" component={MessagesScreen} options={{ headerShown: false }}/>
+      <Tab.Screen name="Ewallet" component={EwalletScreen} options={{ headerShown: false }}/>
+      <Tab.Screen name="Profile" component={ProfileScreen} options={{ headerShown: false }}/>
     </Tab.Navigator>
   );
 }

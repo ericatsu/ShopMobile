@@ -15,7 +15,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <StatusBar barStyle = "dark-content" hidden = {false} backgroundColor = "#e7fcff" translucent = {true}/>
-      <Stack.Navigator initialRouteName="Welcome">
+      <Stack.Navigator initialRouteName="Tabs">
         <Stack.Screen name="Welcome" component={WelcomeScreen} options={{ headerShown: false }} />
         <Stack.Screen name="SignUpScreen" component={SignUpScreen} options={{ headerShown: false }} />
         <Stack.Screen name="SignInScreen" component={SignInScreen} options={{ headerShown: false }} />
